@@ -17,18 +17,29 @@ function Home() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "20px 50px",
+          padding: "18px 70px",
           background: "#2563eb",
           position: "sticky",
           top: 0,
+          overflowX: "auto",
         }}
       >
-        <h2>FlowSense AI</h2>
+        <h2
+  style={{
+    marginRight: "50px",
+    fontSize: "34px",
+    fontWeight: "bold",
+    color: "white",
+    whiteSpace: "nowrap",
+  }}
+>
+  FlowSense AI
+</h2>
 
         <div
           style={{
             display: "flex",
-            gap: "20px",
+            gap: "28px",
             alignItems: "center",
             flexWrap: "wrap",
           }}
@@ -108,14 +119,19 @@ function Home() {
       <section
         style={{
           textAlign: "center",
-          padding: "80px 20px",
+          minHeight: "90vh",
+display: "flex",
+flexDirection: "column",
+justifyContent: "center",
+alignItems: "center",
+padding: "20px",
         }}
       >
         <h1
   style={{
-    fontSize: "48px",
+    fontSize: "52px",
     color: "#60a5fa",
-    maxWidth: "1000px",
+    maxWidth: "1100px",
     margin: "0 auto",
     lineHeight: "1.3",
     fontWeight: "bold",
@@ -137,17 +153,26 @@ function Home() {
           delays and improve operational efficiency.
         </p>
 
-        <div style={{ marginTop: "35px" }}>
+        <div
+  style={{
+    marginTop: "45px",
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    flexWrap: "wrap",
+  }}
+>
           <Link to="/book-demo">
             <button
               style={{
-                padding: "14px 30px",
-                marginRight: "15px",
-                background: "#2563eb",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                cursor: "pointer",
+                padding: "16px 38px",
+background: "#2563eb",
+color: "white",
+border: "none",
+borderRadius: "10px",
+cursor: "pointer",
+fontSize: "17px",
+fontWeight: "bold",
               }}
             >
               Book Demo
@@ -157,12 +182,14 @@ function Home() {
           <Link to="/dashboard">
   <button
     style={{
-      padding: "14px 30px",
-      background: "white",
-      color: "#2563eb",
-      border: "none",
-      borderRadius: "8px",
-      cursor: "pointer",
+      padding: "16px 38px",
+background: "white",
+color: "#2563eb",
+border: "none",
+borderRadius: "10px",
+cursor: "pointer",
+fontSize: "17px",
+fontWeight: "bold",
     }}
   >
     Watch Live Demo
@@ -178,27 +205,59 @@ function Home() {
           display: "flex",
           justifyContent: "space-around",
           flexWrap: "wrap",
-          padding: "60px 20px",
+          padding: "80px 20px",
           background: "#111827",
         }}
       >
         <div>
-          <h2 style={{ color: "#38bdf8" }}>40%</h2>
+          <h2
+  style={{
+    color: "#38bdf8",
+    fontSize: "42px",
+    marginBottom: "10px",
+  }}
+>
+  40%
+</h2>
           <p>Faster Process Execution</p>
         </div>
 
         <div>
-          <h2 style={{ color: "#38bdf8" }}>65%</h2>
+          <h2
+  style={{
+    color: "#38bdf8",
+    fontSize: "42px",
+    marginBottom: "10px",
+  }}
+>
+  65%
+</h2>
           <p>Better Process Visibility</p>
         </div>
 
         <div>
-          <h2 style={{ color: "#38bdf8" }}>32%</h2>
+          <h2
+  style={{
+    color: "#38bdf8",
+    fontSize: "42px",
+    marginBottom: "10px",
+  }}
+>
+  32%
+</h2>
           <p>Reduction in Operational Delays</p>
         </div>
 
         <div>
-          <h2 style={{ color: "#38bdf8" }}>90%</h2>
+          <h2
+  style={{
+    color: "#38bdf8",
+    fontSize: "42px",
+    marginBottom: "10px",
+  }}
+>
+  90%
+</h2>
           <p>Faster Root Cause Analysis</p>
         </div>
       </section>
@@ -293,7 +352,17 @@ function Home() {
 
         <h2 style={{ marginTop: "20px" }}>⬇</h2>
 
-        <h2>FlowSense AI</h2>
+        <h2
+  style={{
+    fontSize: "34px",
+    fontWeight: "bold",
+    marginRight: "70px",
+    color: "white",
+    letterSpacing: "1px",
+  }}
+>
+  FlowSense AI
+</h2>
 
         <h2 style={{ marginTop: "20px" }}>⬇</h2>
 
@@ -467,7 +536,7 @@ function Home() {
             display: "flex",
             justifyContent: "center",
             gap: "20px",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             marginTop: "25px",
           }}
         >

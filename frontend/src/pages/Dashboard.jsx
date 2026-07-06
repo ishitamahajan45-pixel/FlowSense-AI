@@ -47,6 +47,34 @@ function Dashboard() {
       <h3 style={{ textAlign: "center" }}>
         Welcome 👋
       </h3>
+      <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    margin: "30px 0",
+  }}
+>
+  <div style={{ background: "#2563eb", color: "white", padding: "20px", borderRadius: "10px", textAlign: "center" }}>
+    <h2>92%</h2>
+    <p>Process Health Score</p>
+  </div>
+
+  <div style={{ background: "#10b981", color: "white", padding: "20px", borderRadius: "10px", textAlign: "center" }}>
+    <h2>3.2 Days</h2>
+    <p>Average Cycle Time</p>
+  </div>
+
+  <div style={{ background: "#f59e0b", color: "white", padding: "20px", borderRadius: "10px", textAlign: "center" }}>
+    <h2>5</h2>
+    <p>Bottlenecks Found</p>
+  </div>
+
+  <div style={{ background: "#7c3aed", color: "white", padding: "20px", borderRadius: "10px", textAlign: "center" }}>
+    <h2>12</h2>
+    <p>AI Recommendations</p>
+  </div>
+</div>
 
       <div
         style={{
@@ -104,6 +132,16 @@ function Dashboard() {
           <h3>Health Score : {result.healthScore}%</h3>
 
           <h3>Status : {result.status}</h3>
+          <hr />
+
+<h2>🤖 AI Recommendations</h2>
+
+<ul style={{ lineHeight: "2", fontSize: "17px" }}>
+  <li>✔ Remove unnecessary approval steps.</li>
+  <li>✔ Automate repetitive manual tasks.</li>
+  <li>✔ Reduce waiting time between departments.</li>
+  <li>✔ Improve process visibility using dashboards.</li>
+</ul>
 
           <div
             style={{

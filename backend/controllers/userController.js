@@ -6,6 +6,9 @@ const jwt = require("jsonwebtoken");
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    console.log("===== REGISTER REQUEST =====");
+console.log("Name:", name);
+console.log("Email:", email);
 
     const userExists = await User.findOne({ email });
 
@@ -24,6 +27,8 @@ const registerUser = async (req, res) => {
     });
 
     await newUser.save();
+    console.log("✅ User Registered Successfully");
+console.log("Registered Email:", email);
 
     res.status(201).json({
       message: "User registered successfully",
@@ -41,6 +46,9 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("===== LOGIN REQUEST =====");
+console.log("Email:", email);
+
 
     const user = await User.findOne({ email });
 
@@ -63,6 +71,8 @@ const loginUser = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
+    console.log("✅ Login Successful");
+console.log("Logged In User:", email);
 
     res.status(200).json({
       message: "Login Successful",

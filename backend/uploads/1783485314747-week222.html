@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f4f4;
+        margin:0;
+        padding:30px;
+    }
+
+    .container{
+        max-width:900px;
+        margin:auto;
+        background:white;
+        padding:25px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+        border-radius:8px;
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:25px;
+    }
+
+    form{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin-bottom:20px;
+    }
+
+    input{
+        padding:10px;
+        flex:1;
+        min-width:200px;
+    }
+
+    button{
+        padding:10px 15px;
+        border:none;
+        cursor:pointer;
+        border-radius:5px;
+    }
+
+    .add-btn{
+        background:green;
+        color:white;
+    }
+
+    .update-btn{
+        background:orange;
+        color:white;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:20px;
+    }
+
+    table, th, td{
+        border:1px solid #000;
+    }
+
+    th, td{
+        padding:10px;
+        text-align:center;
+    }
+
+    .edit{
+        background:blue;
+        color:white;
+        margin-right:5px;
+    }
+
+    .delete{
+        background:red;
+        color:white;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Project Planning (Javascript)</h1>
+
+    <h2>Student Management System</h2>
+
+    <h3>1. Add Student</h3>
+
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <input type="text" id="course" placeholder="Enter Course" required>
+
+        <button type="submit" class="add-btn" id="submitBtn">
+            Add Student
+        </button>
+    </form>
+
+    <h3>2. View Students</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable">
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+let students = [
+    {
+        id: 1,
+        name: "Ishita Mahajan",
+        email: "ishitamahajan45@gmail.com",
+        course: "MERN"
+    }
+];
+
+let editIndex = -1;
+
+function displayStudents() {
+
+    let table = document.getElementById("studentTable");
+    table.innerHTML = "";
+
+    students.forEach((student, index) => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${student.id}</td>
+            <td>${student.name}</td>
+            <td>${student.email}</td>
+            <td>${student.course}</td>
+            <td>
+                <button class="edit" onclick="editStudent(${index})">
+                    Edit
+                </button>
+
+                <button class="delete" onclick="deleteStudent(${index})">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+document.getElementById("studentForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let course = document.getElementById("course").value;
+
+    if(editIndex === -1){
+
+        students.push({
+            id: students.length + 1,
+            name,
+            email,
+            course
+        });
+
+    }else{
+
+        students[editIndex].name = name;
+        students[editIndex].email = email;
+        students[editIndex].course = course;
+
+        editIndex = -1;
+
+        document.getElementById("submitBtn").innerText = "Add Student";
+        document.getElementById("submitBtn").className = "add-btn";
+    }
+
+    this.reset();
+    displayStudents();
+});
+
+function editStudent(index){
+
+    document.getElementById("name").value =
+    students[index].name;
+
+    document.getElementById("email").value =
+    students[index].email;
+
+    document.getElementById("course").value =
+    students[index].course;
+
+    editIndex = index;
+
+    document.getElementById("submitBtn").innerText =
+    "Update Student";
+
+    document.getElementById("submitBtn").className =
+    "update-btn";
+}
+
+function deleteStudent(index){
+
+    students.splice(index,1);
+
+    displayStudents();
+}
+
+displayStudents();
+
+</script>
+
+</body>
+</html>

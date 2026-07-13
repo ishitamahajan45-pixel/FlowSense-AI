@@ -6,10 +6,14 @@ const {
   loginUser,
 } = require("../controllers/userController");
 
+const {
+  validateRegister,
+  validateLogin,
+} = require("../validation/userValidation");
 // Register User
-router.post("/register", registerUser);
+router.post("/register", validateRegister, registerUser);
 
 // Login User
-router.post("/login", loginUser);
+router.post("/login", validateLogin, loginUser);
 
 module.exports = router;

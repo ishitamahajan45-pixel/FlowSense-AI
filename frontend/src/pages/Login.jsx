@@ -31,12 +31,14 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
+        console.log("Login Response:", data);
         alert("Login Successful");
         navigate("/dashboard");
       } else {
         alert(data.message);
       }
     } catch (error) {
+      console.log("Login Response:", data);
       alert("Server Error");
     }
   };

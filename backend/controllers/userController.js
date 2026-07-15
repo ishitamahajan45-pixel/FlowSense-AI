@@ -87,8 +87,30 @@ console.log("Logged In User:", email);
     });
   }
 };
+// Home API
+const getHome = async (req, res) => {
+  try {
+    res.status(200).json({
+      message: "Welcome to FlowSense AI",
+      success: true,
+      data: {
+        name: "Ishita",
+        course: "MERN Stack",
+        college: "Indo Global group of Colleges",
+        city: "Abhipur,Mohali(Punjab)",
+        project: "FlowSense AI",
+        status: "API Connected Successfully"
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server Error",
+    });
+  }
+};
 
 module.exports = {
   registerUser,
   loginUser,
+  getHome,
 };

@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [homeData, setHomeData] = useState({});
+
+useEffect(() => {
+  fetch("http://localhost:5000/api/users/home")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Home API Response:", data);
+      setHomeData(data.data);
+    })
+    .catch((err) => console.log(err));
+}, []);
   return (
     <div
       style={{
@@ -113,6 +125,25 @@ function Home() {
           </Link>
         </div>
       </nav>
+      <div
+  style={{
+    background: "#1e293b",
+    color: "white",
+    padding: "20px",
+    textAlign: "center",
+  }}
+>
+  <h2>Home API Data</h2>
+
+  <p><b>Name:</b> {homeData.name}</p>
+  <p><b>Course:</b> {homeData.course}</p>
+  <p><b>College:</b> {homeData.college}</p>
+  <p>Project: {homeData.project}</p>
+
+<p>City: {homeData.city}</p>
+
+<p>Status: {homeData.status}</p>
+</div>
 
       {/* Hero Section */}
 
